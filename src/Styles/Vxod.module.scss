@@ -53,6 +53,13 @@
         transition: 0.3s;
         pointer-events: none;
       }
+      .label2 {
+        position: absolute;
+        margin-left: -140px;
+        margin-top: -155px;
+        transition: 0.3s;
+        pointer-events: none;
+      }
       .label1 {
         position: absolute;
         margin-left: -290px;
@@ -73,6 +80,14 @@
         font-size: 15px;
         background-color: #ffebe1;
       }
+      input:focus ~ .label2,
+      input:valid ~ .label2 {
+        transform: translateY(-20px);
+
+        font-size: 15px;
+        background-color: #ffebe1;
+      }
+
       .input {
         img {
           position: absolute;
@@ -99,6 +114,10 @@
       }
       .p {
         font-weight: bold;
+      }
+      .p1 {
+        cursor: pointer;
+        margin-left: -170px;
       }
     }
   }
