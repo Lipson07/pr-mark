@@ -6,6 +6,7 @@ const Vhod = () => {
   return (
     <div className={Vxod.regestr}>
       <img className={Vxod.phon} src={phon} alt="" />
+      
       <div className={Vxod.form}>
         <div className={Vxod.phonform}></div>
         <div className={Vxod.content}>

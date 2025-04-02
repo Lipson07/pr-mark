@@ -1,12 +1,29 @@
 import React from "react";
 import Vxod from "../../Styles/Vxod.module.scss";
-import { phon, eye, closeeye } from "../../Assets/Vxodas/vxod.js";
+import { phon, eye, closeeye, whpng, bphon } from "../../Assets/Vxodas/vxod.js";
 const Regestr = () => {
   const [password, setPassword] = React.useState<boolean>(false);
   const [password1, setPassword1] = React.useState<boolean>(false);
   return (
     <div className={Vxod.regestr}>
       <img className={Vxod.phon} src={phon} alt="" />
+      <div className={Vxod.slider}>
+        <img src={whpng} alt="" />
+        <img src={bphon} alt="" />
+        <img src={whpng} alt="" />
+        <img src={bphon} alt="" />
+        
+        <img src={whpng} alt="" />
+      </div>
+      <div className={Vxod.slider1}>
+        <img src={whpng} alt="" />
+        <img src={bphon} alt="" />
+        <img src={whpng} alt="" />
+        <img src={bphon} alt="" />
+        <img src={bphon} alt="" />
+        <img src={whpng} alt="" />
+        <img src={bphon} alt="" />
+      </div>
       <div className={Vxod.form}>
         <div className={Vxod.phonform}></div>
         <div className={Vxod.content}>
