@@ -101,6 +101,9 @@
         transition: 0.3s;
         pointer-events: none;
       }
+      input[type="password"] {
+        padding: 10px;
+      }
       input:focus ~ .label,
       input:valid ~ .label {
         transform: translateY(-20px);
