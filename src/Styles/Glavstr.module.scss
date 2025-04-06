@@ -1,0 +1,132 @@
+.str {
+  position: absolute;
+  background-color: black;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0.5;
+  display: none;
+}
+.glavstr {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 200vh;
+  background-color: black;
+  section {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    .img {
+      width: 100%;
+      position: absolute;
+      transition: 0.3s;
+    }
+    .img1 {
+      position: absolute;
+      width: 100%;
+      opacity: 0;
+      transition: 0.3s;
+    }
+
+    .arr {
+      .leftarrow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 7%;
+        height: 41%;
+
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+      }
+      .arrback {
+        display: flex;
+        position: absolute;
+        top: 18%;
+        left: 20px;
+        width: 100px;
+        height: 130px;
+        border-radius: 40px;
+        background-color: white;
+        opacity: 0;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+    }
+    .arr1 {
+      .rightarrow {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 10%;
+        height: 41%;
+
+        cursor: pointer;
+      }
+      .arrgo {
+        display: flex;
+        position: absolute;
+        top: 18%;
+        right: 20px;
+        width: 100px;
+        height: 130px;
+        border-radius: 40px;
+        background-color: white;
+        opacity: 0;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+    }
+    .dots {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 110px;
+      height: 15px;
+
+      display: flex;
+      flex-direction: row;
+      .dot {
+        width: 70px;
+        height: 100%;
+        background-color: white;
+        border-radius: 25px;
+        transition: 0.3s;
+      }
+      .dot1 {
+        width: 30px;
+        height: 100%;
+        margin-left: 10px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 25px;
+        transition: 0.3s;
+      }
+    }
+
+    .arr:hover {
+      .leftarrow {
+        opacity: 0.2;
+        background: linear-gradient(to left, transparent, white 50%);
+      }
+      .arrback {
+        opacity: 1;
+      }
+    }
+    .arr1:hover {
+      .rightarrow {
+        opacity: 0.3;
+        background: linear-gradient(to left, white 50%, transparent);
+      }
+      .arrgo {
+        opacity: 1;
+      }
+    }
+  }
+}

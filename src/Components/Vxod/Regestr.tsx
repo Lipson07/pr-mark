@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Vxod from "../../Styles/Vxod.module.scss";
 import { phon, eye, closeeye, whpng, bphon } from "../../Assets/Vxodas/vxod.js";
 import Slider from "./Slider";
+import { Link } from "react-router-dom";
 const Regestr = () => {
   const [password, setPassword] = React.useState<boolean>(false);
   const [password1, setPassword1] = React.useState<boolean>(false);
@@ -27,7 +28,9 @@ const Regestr = () => {
           </div>
           <button>Зарегистрироваться</button>
           <p>Уже есть аккаунт?</p>
-          <p className={Vxod.p}>Войти</p>
+          <Link to="/vhod">
+            <p className={Vxod.p}>Войти</p>
+          </Link> 
         </div>
       </div>
     </div>
