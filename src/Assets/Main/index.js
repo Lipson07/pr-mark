@@ -11,6 +11,12 @@ import arrowhead from "./arrowhead.svg";
 import skidki1 from "./skidiki1.png";
 import arrback from "./arrback.svg";
 import arrgo from "./arrgo.svg";
+import tovar1 from "./tovar1.png";
+import qr from "./qr.svg";
+import apple from "./apple.svg";
+import playmarket from "./playmarket.svg";
+import huawei from "./huawei.svg";
+import rustore from "./rustore.svg";
 export {
   header,
   logo,
@@ -25,4 +31,10 @@ export {
   skidki1,
   arrback,
   arrgo,
+  tovar1,
+  qr,
+  apple,
+  playmarket,
+  huawei,
+  rustore,
 };

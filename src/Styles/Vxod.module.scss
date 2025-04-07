@@ -21,6 +21,7 @@
     height: 1200px;
     width: 400px;
     overflow-y: scroll;
+    pointer-events: none;
 
     img {
       overflow-y: hidden;
@@ -37,6 +38,7 @@
     height: 1200px;
     width: 400px;
     overflow-y: scroll;
+    pointer-events: none;
     img {
       width: 400px;
       height: 400px;

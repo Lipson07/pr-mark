@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import glstr from "../../../Styles/Glavstr.module.scss";
 import { skidki, skidki1, arrback, arrgo } from "../../../Assets/Main";
+import Glavstrmain from "./Glavstrcomp/Glavstrmain";
 const Glavstr = () => {
   const imgs1 = useRef<HTMLImageElement>(null);
   const imgs2 = useRef<HTMLImageElement>(null);
@@ -52,6 +53,7 @@ const Glavstr = () => {
           <div className={glstr.dot1} ref={dot1}></div>
         </div>
       </section>
+      <Glavstrmain />
     </div>
   );
 };

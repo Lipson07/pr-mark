@@ -14,7 +14,6 @@ const Main = () => {
         <Route path="/" element={<Glavstr />} />
       </Routes>
       <div ref={dv} className={glstr.str}></div>
-
       <Footer />
     </>
   );
