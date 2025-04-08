@@ -10,7 +10,7 @@ const Slider = ({
   scrollDirection: number;
 }) => {
   const images = [whpng, bphon, whpng, bphon, whpng, bphon];
-
+  document.getElementsByTagName("html")[0].style.overflow = "hidden";
   const repeatedImages = [...images, ...images];
   const [sliderImages, setSliderImages] = useState(repeatedImages);
   const sliderRef = useRef<HTMLDivElement>(null);

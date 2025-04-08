@@ -114,24 +114,28 @@ const Header = ({ dv }: { dv: any }) => {
         <img src={header} className={head.sect} />
         <div className={head.cont}>
           <div className={head.contone}>
-            <img
-              src={logo}
-              className={head.logo}
-              onClick={() => handleClick(0)}
-              alt=""
-            />
+            <Link to="/">
+              <img
+                src={logo}
+                className={head.logo}
+                onClick={() => handleClick(0)}
+                alt=""
+              />
+            </Link>
             <img
               src={menu}
               className={head.menu}
               onClick={() => handleClick(1)}
               alt=""
             />
-            <img
-              src={like}
-              className={head.like}
-              onClick={() => handleClick(2)}
-              alt=""
-            />
+            <Link to="/likes">
+              <img
+                src={like}
+                className={head.like}
+                onClick={() => handleClick(2)}
+                alt=""
+              />
+            </Link>
           </div>
           <div className={head.conttwo}>
             <div

@@ -17,6 +17,18 @@ import apple from "./apple.svg";
 import playmarket from "./playmarket.svg";
 import huawei from "./huawei.svg";
 import rustore from "./rustore.svg";
+import lik from "./lk.png";
+import tovar2 from "./tovar2.png";
+import tovar3 from "./tovar3.png";
+import tovar4 from "./tovar4.png";
+import tovar5 from "./tovar5.png";
+import tovar6 from "./tovar6.png";
+import tovar7 from "./tovar7.png";
+import tovar8 from "./tovar8.png";
+import tovar9 from "./tovar9.png";
+import tovar10 from "./tovar10.png";
+import tovar11 from "./tovar11.png";
+import tovar12 from "./tovar12.png";
 export {
   header,
   logo,
@@ -37,4 +49,16 @@ export {
   playmarket,
   huawei,
   rustore,
+  lik,
+  tovar2,
+  tovar3,
+  tovar4,
+  tovar5,
+  tovar6,
+  tovar7,
+  tovar8,
+  tovar9,
+  tovar10,
+  tovar11,
+  tovar12,
 };

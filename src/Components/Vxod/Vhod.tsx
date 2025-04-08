@@ -5,6 +5,7 @@ import Slider from "./Slider";
 import { Link } from "react-router-dom";
 const Vhod = () => {
   const [password, setPassword] = React.useState<boolean>(false);
+  document.getElementsByTagName("html")[0].style.overflow = "hidden";
   return (
     <div className={Vxod.regestr}>
       <img className={Vxod.phon} src={phon} alt="" />

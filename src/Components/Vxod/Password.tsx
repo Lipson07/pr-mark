@@ -4,6 +4,7 @@ import { phon, eye, closeeye, whpng, bphon } from "../../Assets/Vxodas/vxod.js";
 import Slider from "./Slider";
 
 const Password = () => {
+  document.getElementsByTagName("html")[0].style.overflow = "hidden";
   return (
     <div className={Vxod.regestr}>
       <img className={Vxod.phon} src={phon} alt="" />

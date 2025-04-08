@@ -11,6 +11,7 @@
 html {
   overflow-y: scroll;
   font-family: gothampro;
+  overflow-x: hidden;
 }
 .glavstr {
   position: relative;
@@ -45,7 +46,7 @@ html {
         top: 0;
         left: 0;
         width: 7%;
-        height: 785px;
+        height: 900px;
 
         cursor: pointer;
         align-items: center;
@@ -72,7 +73,7 @@ html {
         top: 0;
         right: 0;
         width: 10%;
-        height: 785px;
+        height: 900px;
 
         cursor: pointer;
       }
@@ -155,23 +156,141 @@ html {
       display: flex;
       flex-direction: row;
       justify-content: center;
-      gap: 30px;
+      gap: 10px;
       flex-wrap: wrap;
+
       .tovarname {
-        width: 250px;
+        width: 300px;
         border-radius: 20px;
         background-color: #e3e3e3;
         display: flex;
-        justify-content: center;
-        flex-direction: column;
         align-items: center;
-        margin-bottom: 20px;
+        flex-direction: column;
+        height: fit-content;
 
-        img {
-          width: 200px;
-          height: 300px;
+        svg {
+          position: relative;
+          left: 90px;
+          top: 20px;
+          width: 30px;
+          height: 30px;
+          cursor: pointer;
         }
       }
     }
   }
+}
+[data-id="i9"] {
+  position: relative;
+  top: -80px;
+}
+[data-id="i8"] {
+  position: relative;
+  top: -30px;
+}
+[data-id="i10"] {
+  position: relative;
+  top: -20px;
+}
+[data-id="i11"] {
+  position: relative;
+  top: -80px;
+}
+[data-id1="i1"] {
+  position: relative;
+  top: -80px;
+}
+[data-id1="i2"] {
+  position: relative;
+  top: -65px;
+}
+[data-id1="i3"] {
+  position: relative;
+  top: -75px;
+}
+[data-id1="i4"] {
+  position: relative;
+  top: -100px;
+}
+[data-id1="i5"] {
+  position: relative;
+  top: -80px;
+}
+[data-id1="i6"] {
+  position: relative;
+  top: -80px;
+}
+[data-id1="i7"] {
+  position: relative;
+  top: -80px;
+}
+
+[data-id1="i8"] {
+  position: relative;
+  top: -95px;
+}
+[data-id1="i9"] {
+  position: relative;
+  top: -155px;
+}
+[data-id1="i10"] {
+  position: relative;
+  top: -115px;
+}
+[data-id1="i11"] {
+  position: relative;
+  top: -165px;
+}
+[data-id1="i12"] {
+  position: relative;
+  top: -80px;
+}
+[data-id2="i1"] {
+  position: relative;
+  top: -155px;
+}
+[data-id2="i2"] {
+  position: relative;
+  top: -130px;
+}
+[data-id2="i3"] {
+  position: relative;
+  top: -150px;
+}
+[data-id2="i4"] {
+  position: relative;
+  top: -200px;
+}
+[data-id2="i5"] {
+  position: relative;
+  top: -160px;
+}
+[data-id2="i6"] {
+  position: relative;
+  top: -160px;
+}
+[data-id2="i7"] {
+  position: relative;
+  top: -150px;
+}
+
+[data-id2="i8"] {
+  position: relative;
+  top: -155px;
+}
+[data-id2="i9"] {
+  position: relative;
+  top: -230px;
+}
+[data-id2="i10"] {
+  position: relative;
+  top: -210px;
+}
+[data-id2="i11"] {
+  position: relative;
+  top: -240px;
+}
+[data-id2="i12"] {
+  position: relative;
+  top: -150px;
 }

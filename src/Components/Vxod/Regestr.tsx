@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Regestr = () => {
   const [password, setPassword] = React.useState<boolean>(false);
   const [password1, setPassword1] = React.useState<boolean>(false);
-
+  document.getElementsByTagName("html")[0].style.overflow = "hidden";
   return (
     <div className={Vxod.regestr}>
       <img className={Vxod.phon} src={phon} alt="" />
@@ -30,7 +30,7 @@ const Regestr = () => {
           <p>Уже есть аккаунт?</p>
           <Link to="/vhod">
             <p className={Vxod.p}>Войти</p>
-          </Link> 
+          </Link>
         </div>
       </div>
     </div>
