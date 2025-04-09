@@ -154,12 +154,14 @@ const Header = ({ dv }: { dv: any }) => {
             <img ref={image} src={search} className={head.search} />
           </div>
           <div className={head.contthree}>
+            <Link to="/shop">
             <img
               src={shop}
               className={head.shop}
               onClick={() => handleClick(3)}
               alt=""
             />
+            </Link>
           </div>
           <Link to="/vhod">
             <div className={head.contfour}>

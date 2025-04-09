@@ -1,5 +1,8 @@
 import React, { useEffect } from "react";
 import glstr from "../../../../Styles/Glavstr.module.scss";
+import { selectLike,SetLike ,Setid} from "../../../../store/like";
+import { useDispatch,useSelector } from "react-redux";
+
 import {
   tovar1,
   tovar2,
@@ -16,7 +19,17 @@ import {
 } from "../../../../Assets/Main";
 const Glavstrmain = () => {
   let d = 0;
+  
+const dispatch = useDispatch();
+const tovarl=useSelector(selectLike)
 
+const likepush=(index:number,cost:number)=>{
+
+  const id=[index,cost,true]
+    const tovars=dispatch(Setid(id))
+    dispatch(SetLike(tovars))
+    console.log(tovarl)
+}
   const image: string[] = [
     tovar1,
     tovar2,
@@ -82,6 +95,7 @@ const Glavstrmain = () => {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                onClick={()=>likepush(index,0)}
               >
                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
               </svg>

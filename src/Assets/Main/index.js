@@ -29,6 +29,7 @@ import tovar9 from "./tovar9.png";
 import tovar10 from "./tovar10.png";
 import tovar11 from "./tovar11.png";
 import tovar12 from "./tovar12.png";
+import sumka from "./sumka.png"
 export {
   header,
   logo,
@@ -61,4 +62,5 @@ export {
   tovar10,
   tovar11,
   tovar12,
+  sumka,
 };
