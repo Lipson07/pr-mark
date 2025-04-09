@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import glstr from "../../../../Styles/Glavstr.module.scss";
-import { selectLike,SetLike ,Setid} from "../../../../store/like";
-import { useDispatch,useSelector } from "react-redux";
+import { selectLike, SetLike, Setid } from "../../../../store/like";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   tovar1,
@@ -19,17 +19,21 @@ import {
 } from "../../../../Assets/Main";
 const Glavstrmain = () => {
   let d = 0;
-  
-const dispatch = useDispatch();
-const tovarl=useSelector(selectLike)
 
-const likepush=(index:number,cost:number)=>{
+  const dispatch = useDispatch();
+  const tovarl = useSelector(selectLike);
 
-  const id=[index,cost,true]
-    const tovars=dispatch(Setid(id))
-    dispatch(SetLike(tovars))
-    console.log(tovarl)
-}
+  const likepush = async (index: number, cost: number, likecount: boolean) => {
+    const id = {
+      index: index,
+      cost: cost,
+      likecount: likecount,
+    };
+    dispatch(Setid(id));
+
+    dispatch(SetLike({ id }));
+  };
+  console.log(tovarl);
   const image: string[] = [
     tovar1,
     tovar2,
@@ -68,6 +72,7 @@ const likepush=(index:number,cost:number)=>{
     tovar11,
     tovar12,
   ];
+
   return (
     <div className={glstr.tovars}>
       <div className={glstr.sectname}>
@@ -77,7 +82,10 @@ const likepush=(index:number,cost:number)=>{
         {image.map((item, index) => {
           if (d < 12) d++;
           else d = 1;
-
+          const current = tovarl
+            ? tovarl.find((item: any) => item.id.index === index)?.id
+                .likecount || false
+            : false;
           return (
             <div
               className={glstr.tovarname}
@@ -90,12 +98,12 @@ const likepush=(index:number,cost:number)=>{
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
-                fill={"white"}
+                fill={current ? "red" : "white"}
                 stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                onClick={()=>likepush(index,0)}
+                onClick={() => likepush(index, 0, true)}
               >
                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
               </svg>
