@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import glstr from "../../../../Styles/Glavstr.module.scss";
-import { selectLike, SetLike, Setid } from "../../../../store/like";
+import { selectLike, SetLike, Setid, DeleteLike } from "../../../../store/like";
 import { useDispatch, useSelector } from "react-redux";
-
+import { SetTovar, selectTovar } from "../../../../store/tovars";
 import {
   tovar1,
   tovar2,
@@ -17,12 +17,13 @@ import {
   tovar11,
   tovar12,
 } from "../../../../Assets/Main";
+import { Link } from "react-router-dom";
 const Glavstrmain = () => {
   let d = 0;
 
   const dispatch = useDispatch();
   const tovarl = useSelector(selectLike);
-
+  const tv = useSelector(selectTovar);
   const likepush = async (index: number, cost: number, likecount: boolean) => {
     const id = {
       index: index,
@@ -32,8 +33,20 @@ const Glavstrmain = () => {
     dispatch(Setid(id));
 
     dispatch(SetLike({ id }));
+    if (tovarl.find((item: any) => item.id.index === index)?.id.likecount) {
+      dispatch(DeleteLike({ index }));
+    }
   };
-  console.log(tovarl);
+  function cardtovarload(id: number, name: string, cost: number, img: string) {
+    const tovar = {
+      id: id,
+      name: name,
+      cost: cost,
+      img: img,
+    };
+    dispatch(SetTovar(tovar));
+  }
+
   const image: string[] = [
     tovar1,
     tovar2,
@@ -88,6 +101,7 @@ const Glavstrmain = () => {
             : false;
           return (
             <div
+              onClick={() => cardtovarload(index, "name", 0, item)}
               className={glstr.tovarname}
               data-id={"i" + d}
               data-id1={index >= 12 ? "i" + d : ""}
@@ -107,9 +121,11 @@ const Glavstrmain = () => {
               >
                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
               </svg>
-              <img src={item} key={index} />
-              <p>Сланцы RA-Sh</p>
-              <p>1200р</p>
+              <Link to="/tovar">
+                <img src={item} key={index} />
+                <p>Сланцы RA-Sh</p>
+                <p>1200р</p>
+              </Link>
             </div>
           );
         })}

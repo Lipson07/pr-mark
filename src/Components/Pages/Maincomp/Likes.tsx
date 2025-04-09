@@ -3,13 +3,107 @@ import lk from "../../../Styles/Like.module.scss";
 import { lik } from "../../../Assets/Main/index";
 import { UseSelector, useDispatch, useSelector } from "react-redux";
 import { selectLike } from "../../../store/like";
-const Likes = () => {
-  const likes = useSelector(selectLike);
+import {
+  tovar1,
+  tovar2,
+  tovar3,
+  tovar4,
+  tovar5,
+  tovar6,
+  tovar7,
+  tovar8,
+  tovar9,
+  tovar10,
+  tovar11,
+  tovar12,
+} from "../../../Assets/Main";
 
+import { SetTovar, selectTovar } from "../../../store/tovars";
+import { Link } from "react-router-dom";
+const Likes = () => {
+  const tv = useSelector(selectTovar);
+  const dispatch = useDispatch();
+  function cardtovarload(id: number, name: string, cost: number, img: string) {
+    const tovar = {
+      id: id,
+      name: name,
+      cost: cost,
+      img: img,
+    };
+    dispatch(SetTovar(tovar));
+    console.log(tv);
+  }
+
+  const likes = useSelector(selectLike);
+  const image: string[] = [
+    tovar1,
+    tovar2,
+    tovar3,
+    tovar4,
+    tovar5,
+    tovar6,
+    tovar7,
+    tovar8,
+    tovar9,
+    tovar10,
+    tovar11,
+    tovar12,
+    tovar1,
+    tovar2,
+    tovar3,
+    tovar4,
+    tovar5,
+    tovar6,
+    tovar7,
+    tovar8,
+    tovar9,
+    tovar10,
+    tovar11,
+    tovar12,
+    tovar1,
+    tovar2,
+    tovar3,
+    tovar4,
+    tovar5,
+    tovar6,
+    tovar7,
+    tovar8,
+    tovar9,
+    tovar10,
+    tovar11,
+    tovar12,
+  ];
   return (
     <div className={lk.like}>
       {likes.length !== 0 ? (
-        "cocи"
+        <div className={lk.content1}>
+          <h1>Избранное</h1>
+          <div className={lk.items}>
+            {likes.map((item, index) => (
+              <Link to="/tovar">
+                {" "}
+                <div
+                  className={lk.item}
+                  key={index}
+                  onClick={() =>
+                    cardtovarload(
+                      likes[index].id.index,
+                      "name",
+                      0,
+                      image[likes[index].id.index]
+                    )
+                  }
+                >
+                  <img src={image[likes[index].id.index]} alt="" />
+                  <div>
+                    <p>Сланцы RA-Sh</p>
+                    <p>1200р</p>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
       ) : (
         <div className={lk.content}>
           <img src={lik} />

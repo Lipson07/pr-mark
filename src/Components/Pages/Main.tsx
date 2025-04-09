@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import glstr from "../../Styles/Glavstr.module.scss";
 import Likes from "./Maincomp/Likes";
 import Korzina from "./Maincomp/Korzina";
+import Tovars from "./Maincomp/Tovars";
 const Main = () => {
   const dv = useRef<HTMLDivElement>(null);
   console.log("ssss");
@@ -16,10 +17,10 @@ const Main = () => {
       <Routes>
         <Route path="/" element={<Glavstr />} />
         <Route path="likes" element={<Likes />} />
-        <Route path="shop" element={<Korzina/>}/>
+        <Route path="shop" element={<Korzina />} />
+        <Route path="tovar" element={<Tovars />} />
       </Routes>
       <div ref={dv} className={glstr.str}></div>
-    
     </>
   );
 };

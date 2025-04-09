@@ -34,9 +34,14 @@ const LikeSlice = createSlice({
     ) {
       state.id = action.payload;
     },
+    DeleteLike(state, action: PayloadAction<{ index: number }>) {
+      state.Likeobj = state.Likeobj.filter(
+        (item) => item.id.index !== action.payload.index
+      );
+    },
   },
 });
-export const { SetLike, Setid } = LikeSlice.actions;
+export const { SetLike, Setid, DeleteLike } = LikeSlice.actions;
 
 export const selectLike = (state: { like: Likestate }) => state.like.Likeobj;
 export default LikeSlice.reducer;
