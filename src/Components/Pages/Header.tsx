@@ -76,8 +76,10 @@ const Header = ({ dv }: { dv: any }) => {
     search!.style.transform = "translateX(-400px)";
     line.current!.style.display = "none";
     search!.style.opacity = "1";
+    document.getElementsByTagName("html")[0].style.overflowY = "hidden";
   }
   function backclick() {
+    document.getElementsByTagName("html")[0].style.overflowY = "scroll";
     console.log("click");
     const search = sr.current;
     const backs = back.current;
@@ -155,12 +157,12 @@ const Header = ({ dv }: { dv: any }) => {
           </div>
           <div className={head.contthree}>
             <Link to="/shop">
-            <img
-              src={shop}
-              className={head.shop}
-              onClick={() => handleClick(3)}
-              alt=""
-            />
+              <img
+                src={shop}
+                className={head.shop}
+                onClick={() => handleClick(3)}
+                alt=""
+              />
             </Link>
           </div>
           <Link to="/vhod">

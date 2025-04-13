@@ -4,6 +4,7 @@ import storage from "redux-persist/lib/storage";
 import maincount from "./maincount";
 import like from "./like";
 import tovars from "./tovars";
+import korz from "./korz";
 const persistMain = {
   key: "maincount",
   storage,
@@ -19,14 +20,21 @@ const persistTovars = {
   storage,
   whitelist: ["tovar", "id", "cost", "name", "img"],
 };
+const persistKorz = {
+  key: "korz",
+  storage,
+  whitelist: ["korz", "tovar", "id", "cost", "name", "img", "kol"],
+};
 const persistMainReducer = persistReducer(persistMain, maincount);
 const persistLikeReducer = persistReducer(persistLike, like);
 const persistTovarsReducer = persistReducer(persistTovars, tovars);
+const persistKorzReducer = persistReducer(persistKorz, korz);
 const store = configureStore({
   reducer: {
     maincount: persistMainReducer,
     like: persistLikeReducer,
     tovar: persistTovarsReducer,
+    korz: persistKorzReducer,
   },
 });
 

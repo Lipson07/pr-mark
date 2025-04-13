@@ -13,6 +13,8 @@ const LikeSlice = createSlice({
   name: "like",
   initialState,
   reducers: {
+
+   
     SetLike(
       state,
       action: PayloadAction<{

@@ -4,6 +4,20 @@ import { selectLike, SetLike, Setid, DeleteLike } from "../../../../store/like";
 import { useDispatch, useSelector } from "react-redux";
 import { SetTovar, selectTovar } from "../../../../store/tovars";
 import {
+  tovar1im,
+  tovar1im1,
+  tovar1im2,
+  tovar2im,
+  tovar2im1,
+  tovar2im2,
+  tovar3im,
+  tovar3im1,
+  tovar3im2,
+  tovar4im,
+  tovar4im1,
+  tovar4im2,
+} from "../../../../Assets/tovars";
+import {
   tovar1,
   tovar2,
   tovar3,
@@ -20,7 +34,130 @@ import {
 import { Link } from "react-router-dom";
 const Glavstrmain = () => {
   let d = 0;
-
+  const im = [
+    [tovar1, tovar1im, tovar1im1, tovar1im2],
+    [tovar2, tovar2im, tovar2im1, tovar2im2],
+    [tovar3, tovar3im, tovar3im1, tovar3im2],
+    [tovar4, tovar4im, tovar4im1, tovar4im2],
+    [tovar4, tovar4im, tovar4im1, tovar4im2],
+    [tovar4, tovar4im, tovar4im1, tovar4im2],
+    [tovar4, tovar4im, tovar4im1, tovar4im2],
+    [tovar4, tovar4im, tovar4im1, tovar4im2],
+    [tovar4, tovar4im, tovar4im1, tovar4im2],
+    [tovar4, tovar4im, tovar4im1, tovar4im2],
+  ];
+  const cost = [
+    1243, 715, 2413, 2413, 435, 930, 20146, 66690, 38000, 2364997, 2102, 52261,
+    1243, 715, 2413, 2413, 435, 930, 20146, 66690, 38000, 2364997, 2102, 52261,
+    1243, 715, 2413, 2413, 435, 930, 20146, 66690, 38000, 2364997, 2102, 52261,
+  ];
+  const name = [
+    "Сланцы RA-Sh",
+    "Журнал ЧТИВО №3... ",
+    "Кроссовки lexsan",
+    "Смартфон Apple iP...",
+    "Чехол Genshin Impa...",
+    "Комплект трусов б... ",
+    "Процессор Intel CO...",
+    "Игровая приставка...",
+    "Умная колонка “Ал...",
+    "Автомобиль CHERY...",
+    "Туалетная вода Dol...",
+    "Подвесной унитаз...",
+    "Сланцы RA-Sh",
+    "Журнал ЧТИВО №3... ",
+    "Кроссовки lexsan",
+    "Смартфон Apple iP...",
+    "Чехол Genshin Impa...",
+    "Комплект трусов б... ",
+    "Процессор Intel CO...",
+    "Игровая приставка...",
+    "Умная колонка “Ал...",
+    "Автомобиль CHERY...",
+    "Туалетная вода Dol...",
+    "Подвесной унитаз...",
+    "Сланцы RA-Sh",
+    "Журнал ЧТИВО №3... ",
+    "Кроссовки lexsan",
+    "Смартфон Apple iP...",
+    "Чехол Genshin Impa...",
+    "Комплект трусов б... ",
+    "Процессор Intel CO...",
+    "Игровая приставка...",
+    "Умная колонка “Ал...",
+    "Автомобиль CHERY...",
+    "Туалетная вода Dol...",
+    "Подвесной унитаз...",
+  ];
+  const about = [
+    [
+      "Материал",
+      "Материал подошвы обуви",
+      "Сезон",
+      "Цвет	",
+      "Российский размер	",
+    ],
+    [
+      "Материал",
+      "Материал подошвы обуви",
+      "Сезон",
+      "Цвет	",
+      "Российский размер	",
+    ],
+    [
+      "Материал",
+      "Материал подошвы обуви",
+      "Сезон",
+      "Цвет	",
+      "Российский размер	",
+    ],
+    [
+      "Материал",
+      "Материал подошвы обуви",
+      "Сезон",
+      "Цвет	",
+      "Российский размер	",
+    ],
+    [
+      "Материал",
+      "Материал подошвы обуви",
+      "Сезон",
+      "Цвет	",
+      "Российский размер	",
+    ],
+    [
+      "Материал",
+      "Материал подошвы обуви",
+      "Сезон",
+      "Цвет	",
+      "Российский размер	",
+    ],
+    [
+      "Материал",
+      "Материал подошвы обуви",
+      "Сезон",
+      "Цвет	",
+      "Российский размер	",
+    ],
+    [
+      "Материал",
+      "Материал подошвы обуви",
+      "Сезон",
+      "Цвет	",
+      "Российский размер	",
+    ],
+  ];
+  const abouts = [
+    ["EVA", "EVA", "Лето", "Черный", "44.45"],
+    ["EVA", "EVA", "Лето", "Черный", "44.45"],
+    ["EVA", "EVA", "Лето", "Черный", "44.45"],
+    ["EVA", "EVA", "Лето", "Черный", "44.45"],
+    ["EVA", "EVA", "Лето", "Черный", "44.45"],
+    ["EVA", "EVA", "Лето", "Черный", "44.45"],
+    ["EVA", "EVA", "Лето", "Черный", "44.45"],
+    ["EVA", "EVA", "Лето", "Черный", "44.45"],
+    ["EVA", "EVA", "Лето", "Черный", "44.45"],
+  ];
   const dispatch = useDispatch();
   const tovarl = useSelector(selectLike);
   const tv = useSelector(selectTovar);
@@ -37,12 +174,23 @@ const Glavstrmain = () => {
       dispatch(DeleteLike({ index }));
     }
   };
-  function cardtovarload(id: number, name: string, cost: number, img: string) {
+  function cardtovarload(
+    id: number,
+    name: string,
+    cost: number,
+    img: string,
+    im: string[],
+    about: string[],
+    abouts: string[]
+  ) {
     const tovar = {
       id: id,
       name: name,
       cost: cost,
       img: img,
+      im: im,
+      about: about,
+      abouts: abouts,
     };
     dispatch(SetTovar(tovar));
   }
@@ -101,7 +249,17 @@ const Glavstrmain = () => {
             : false;
           return (
             <div
-              onClick={() => cardtovarload(index, "name", 0, item)}
+              onClick={() =>
+                cardtovarload(
+                  index,
+                  name[index],
+                  cost[index],
+                  item,
+                  im[index],
+                  about[index],
+                  abouts[index]
+                )
+              }
               className={glstr.tovarname}
               data-id={"i" + d}
               data-id1={index >= 12 ? "i" + d : ""}
@@ -123,8 +281,8 @@ const Glavstrmain = () => {
               </svg>
               <Link to="/tovar">
                 <img src={item} key={index} />
-                <p>Сланцы RA-Sh</p>
-                <p>1200р</p>
+                <p>{name[index]}</p>
+                <p>{cost[index] + " ₽"}</p>
               </Link>
             </div>
           );

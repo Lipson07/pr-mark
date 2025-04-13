@@ -1,12 +1,22 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface TovarState {
-  tovar: { id: number; name: string; cost: number; img: string }[];
-
+  tovar: {
+    id: number;
+    name: string;
+    cost: number;
+    img: string;
+    im: string[];
+    about: string[];
+    abouts: string[];
+  }[];
   id: number;
   cost: number;
   name: string;
   img: string;
+  im: string[];
+  about: string[];
+  abouts: string[];
 }
 
 const initialState: TovarState = {
@@ -15,6 +25,9 @@ const initialState: TovarState = {
   cost: 0,
   name: "",
   img: "",
+  im: [],
+  about: [],
+  abouts: [],
 };
 
 const tovarSlice = createSlice({
