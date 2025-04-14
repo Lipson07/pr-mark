@@ -33,16 +33,16 @@ const Header = ({ dv }: { dv: any }) => {
   useEffect(() => {
     const ln = line.current;
     if (count === 0) {
-      ln!.style.transform = "translateX(0px)";
+      ln!.style.transform = "translateX(-35px)";
     }
     if (count === 1) {
-      ln!.style.transform = "translateX(100px)";
+      ln!.style.transform = "translateX(80px)";
     }
     if (count === 2) {
-      ln!.style.transform = "translateX(200px)";
+      ln!.style.transform = "translateX(185px)";
     }
     if (count === 3) {
-      ln!.style.transform = "translateX(640px)";
+      ln!.style.transform = "translateX(637px)";
     }
   });
 
@@ -124,12 +124,14 @@ const Header = ({ dv }: { dv: any }) => {
                 alt=""
               />
             </Link>
-            <img
-              src={menu}
-              className={head.menu}
-              onClick={() => handleClick(1)}
-              alt=""
-            />
+            <Link to="/category">
+              <img
+                src={menu}
+                className={head.menu}
+                onClick={() => handleClick(1)}
+                alt=""
+              />
+            </Link>
             <Link to="/likes">
               <img
                 src={like}
