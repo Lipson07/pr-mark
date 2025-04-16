@@ -3,11 +3,15 @@ import Vxod from "../../Styles/Vxod.module.scss";
 import { phon, eye, closeeye } from "../../Assets/Vxodas/vxod.js";
 import Slider from "./Slider";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../store/user";
 const Vhod = () => {
   const [password, setPassword] = React.useState<string>("");
   const [phone, setPhone] = React.useState<string>("");
+  const dispatch = useDispatch();
+
   const a = async () => {
-    const res = await fetch("http://localhost:8000/login", {
+    const res = await fetch("http://localhost:8080/login", {
       method: "POST",
 
       headers: {
@@ -18,6 +22,18 @@ const Vhod = () => {
         password: password,
       }),
     });
+    const data = await res.json();
+    const payload = {
+      user: {
+        id: data.id,
+        phone_number: data.phone_number,
+        password: data.password,
+      },
+    };
+    if (data) {
+      const a = dispatch(setUser(payload));
+      console.log(a);
+    }
   };
   document.getElementsByTagName("html")[0].style.overflow = "hidden";
   return (

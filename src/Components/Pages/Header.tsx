@@ -3,6 +3,7 @@ import { Setcount, selectCount } from "../../store/maincount";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useState, useEffect, useRef } from "react";
+import { selectUser } from "../../store/user";
 import {
   header,
   logo,
@@ -18,6 +19,8 @@ import head from "../../Styles/Header.module.scss";
 import { Link } from "react-router-dom";
 
 const Header = ({ dv }: { dv: any }) => {
+  const user = useSelector(selectUser);
+  console.log(user);
   const sr = useRef<HTMLInputElement>(null);
   const line = useRef<HTMLImageElement>(null);
   const back = useRef<HTMLDivElement>(null);
@@ -124,7 +127,9 @@ const Header = ({ dv }: { dv: any }) => {
                 alt=""
               />
             </Link>
-            <Link to="/category">
+
+            <Link to="/catalog">
+
               <img
                 src={menu}
                 className={head.menu}
@@ -167,11 +172,19 @@ const Header = ({ dv }: { dv: any }) => {
               />
             </Link>
           </div>
-          <Link to="/vhod">
-            <div className={head.contfour}>
-              <img src={reg} className={head.reg} alt="" />
-            </div>
-          </Link>
+          {user.user.id === 0 ? (
+            <Link to="/vhod">
+              <div className={head.contfour}>
+                <img src={reg} className={head.reg} alt="" />
+              </div>
+            </Link>
+          ) : (
+            <Link to="/basket">
+              <div className={head.contfour}>
+                <img src={reg} className={head.reg} alt="" />
+              </div>
+            </Link>
+          )}
         </div>
         <img src={linehead} className={head.linehead} alt="" ref={line} />
       </div>{" "}

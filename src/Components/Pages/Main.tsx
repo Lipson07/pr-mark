@@ -7,7 +7,11 @@ import glstr from "../../Styles/Glavstr.module.scss";
 import Likes from "./Maincomp/Likes";
 import Korzina from "./Maincomp/Korzina";
 import Tovars from "./Maincomp/Tovars";
-import Category from "./Maincomp/Category";
+
+
+
+import Catalog from "./Maincomp/Catalog";
+
 const Main = () => {
   const dv = useRef<HTMLDivElement>(null);
   console.log("ssss");
@@ -20,9 +24,14 @@ const Main = () => {
         <Route path="likes" element={<Likes />} />
         <Route path="shop" element={<Korzina />} />
         <Route path="tovar" element={<Tovars />} />
-        <Route path="category" element={<Category />} />
+
+        <Route path="catalog" element={<Catalog />} />
+
+      
+
       </Routes>
       <div ref={dv} className={glstr.str}></div>
+
     </>
   );
 };
