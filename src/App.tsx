@@ -15,6 +15,7 @@ function App() {
         <Route path="vhod" element={<Vhod />} />
         <Route path="smena" element={<Password />} />
         <Route path="regestr" element={<Regestr />} />
+        
       </Routes>
     </div>
   );
