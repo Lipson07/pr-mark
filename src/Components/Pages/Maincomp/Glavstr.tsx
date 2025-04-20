@@ -59,7 +59,7 @@ const Glavstr = () => {
         </section>
         <Glavstrmain />
       </div>
-      <Footer />
+      <Footer dv={1} />
     </>
   );
 };

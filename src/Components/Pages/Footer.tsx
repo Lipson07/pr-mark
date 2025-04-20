@@ -7,9 +7,12 @@ import {
   playmarket,
   rustore,
 } from "../../Assets/Main/index";
-const Footer = () => {
+interface FooterProps {
+  dv: number;
+}
+const Footer = ({ dv }: FooterProps) => {
   return (
-    <footer className={footer.footer}>
+    <footer className={dv == 1 ? footer.footer : footer.footer1}>
       <div className={footer.container}>
         <div className={footer.contqr}>
           <img src={qr} />

@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { tovar1im } from "../../../Assets/tovars";
 import tovars from "../../../Styles/Tovar.module.scss";
 import { SetKorz, selectKorz, DeleteKorz } from "../../../store/korz";
+
 const Tovars = () => {
   const dispatch = useDispatch();
   const tv = useSelector(selectTovar);
@@ -45,12 +46,13 @@ const Tovars = () => {
                 );
               })}
             </section>
-            <div>
+            <div className={tovars.item1}>
               <img src={imgosntovar} className={tovars.img} alt="" />
             </div>
             <div>
-              <p>{item.name}</p>
-              <p>{item.cost}</p>
+              <div className={tovars.name}>
+                <p>{item.name}</p>
+              </div>
               <div className={tovars.about}>
                 <h1>О товаре</h1>
                 {tv[0].about.map((item: any, index) => {
@@ -63,8 +65,14 @@ const Tovars = () => {
                 })}
               </div>
             </div>
-            <div>
-              <button onClick={korztovarload}>В корзину</button>
+            <div className={tovars.cost}>
+              <h1>{item.cost}</h1>
+              <div className={tovars.button}>
+                <button className={tovars.button1} onClick={korztovarload}>
+                  Добавить в корзинуу
+                </button>
+                <div className={tovars.button2}>k</div>
+              </div>
             </div>
           </div>
         );
