@@ -2,8 +2,8 @@ from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, Session
-from pydantic import BaseModel
-from typing import Annotated, List
+from pydantic import BaseModel, validator
+from typing import Annotated, List, Optional
 import bcrypt
 
 # Database Configuration
@@ -19,7 +19,7 @@ class User(Base):
     __tablename__ = "users"
 
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String)
+    name = Column(String, nullable=True)  # Allow NULL values in the database
     phone_number = Column(String, unique=True, index=True)
     password = Column(String)
 
@@ -36,25 +36,30 @@ def get_db():
 
 db_dependency = Annotated[Session, Depends(get_db)]
 
-# Pydantic models for request and response
+
 class UserCreate(BaseModel):
-    name: str
+    name: Optional[str] = None  # Make name optional
     phone_number: str
     password: str
 
+
 class UserResponse(BaseModel):
     id: int
-    name: str
+    name: Optional[str]
     phone_number: str
-    password: str  # ВНИМАНИЕ: Удалить в production!
+    class Config: 
+        orm_mode = True 
+        from_attributes = True  
 
-    class Config:
-        orm_mode = True
 
 class PasswordChange(BaseModel):
     phone_number: str
     old_password: str
     new_password: str
+
+class UserNameUpdate(BaseModel):
+    user_id: int
+    new_name: str
 
 def hash_password(password: str):
     hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
@@ -120,7 +125,17 @@ async def delete_user(user_id: int, db: db_dependency):
     db.commit()
     return {"message": "User deleted successfully"}
 
-# Example Usage (Run with uvicorn main:app --reload)
+@app.put("/users/update_name/")
+async def update_user_name(name_update: UserNameUpdate, db: db_dependency):
+    user = db.query(User).filter(User.id == name_update.user_id).first()
+    if user is None:
+        raise HTTPException(status_code=404, detail="User not found")
+
+    user.name = name_update.new_name
+    db.commit()
+    db.refresh(user)
+    return UserResponse.from_orm(user)
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
