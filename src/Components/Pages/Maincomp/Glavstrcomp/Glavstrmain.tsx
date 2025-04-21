@@ -161,17 +161,32 @@ const Glavstrmain = () => {
   const dispatch = useDispatch();
   const tovarl = useSelector(selectLike);
   const tv = useSelector(selectTovar);
-  const likepush = async (index: number, cost: number, likecount: boolean) => {
+  const likepush = async (
+    ids: number,
+    name: string,
+    cost: number,
+    img: string,
+    im: string[],
+    about: string[],
+    abouts: string[],
+    likecount: boolean
+  ) => {
     const id = {
-      index: index,
+      ids: ids,
+      name: name,
+
       cost: cost,
+      img: img,
+      im: im,
+      about: about,
+      abouts: abouts,
       likecount: likecount,
     };
     dispatch(Setid(id));
 
     dispatch(SetLike({ id }));
-    if (tovarl.find((item: any) => item.id.index === index)?.id.likecount) {
-      dispatch(DeleteLike({ index }));
+    if (tovarl.find((item: any) => item.id.ids === ids)?.id.likecount) {
+      dispatch(DeleteLike({ ids }));
     }
   };
   function cardtovarload(
@@ -244,7 +259,7 @@ const Glavstrmain = () => {
           if (d < 12) d++;
           else d = 1;
           const current = tovarl
-            ? tovarl.find((item: any) => item.id.index === index)?.id
+            ? tovarl.find((item: any) => item.id.ids === index)?.id
                 .likecount || false
             : false;
           return (
@@ -275,7 +290,18 @@ const Glavstrmain = () => {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                onClick={() => likepush(index, 0, true)}
+                onClick={() =>
+                  likepush(
+                    index,
+                    name[index],
+                    cost[index],
+                    item,
+                    im[index],
+                    about[index],
+                    abouts[index],
+                    true
+                  )
+                }
               >
                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
               </svg>

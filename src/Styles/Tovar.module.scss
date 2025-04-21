@@ -24,7 +24,7 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      height: 130px;
+      height: 170px;
       justify-content: start;
       p {
         font-weight: bolder;
@@ -111,6 +111,10 @@
           border-radius: 15px;
           font-size: 20px;
           color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
         }
       }
     }

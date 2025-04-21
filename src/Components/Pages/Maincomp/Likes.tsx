@@ -1,7 +1,7 @@
 import React from "react";
 import lk from "../../../Styles/Like.module.scss";
 import { lik } from "../../../Assets/Main/index";
-import { UseSelector, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectLike } from "../../../store/like";
 import {
   tovar1,
@@ -37,6 +37,8 @@ import { Link } from "react-router-dom";
 const Likes = () => {
   const tv = useSelector(selectTovar);
   const dispatch = useDispatch();
+  const like = useSelector(selectLike);
+  console.log(like);
   function cardtovarload(
     id: number,
     name: string,
@@ -55,6 +57,7 @@ const Likes = () => {
       about: about,
       abouts: abouts,
     };
+
     dispatch(SetTovar(tovar));
   }
   const about = [
@@ -228,18 +231,18 @@ const Likes = () => {
                   key={index}
                   onClick={() =>
                     cardtovarload(
-                      index,
-                      name[index],
-                      cost[index],
-                      image[index],
+                      like[index].id.ids,
+                      like[index].id.name,
+                      like[index].id.cost,
+                      like[index].id.img,
 
-                      im[index],
-                      about[index],
-                      abouts[index]
+                      like[index].id.im,
+                      like[index].id.about,
+                      like[index].id.abouts
                     )
                   }
                 >
-                  <img src={image[likes[index].id.index]} alt="" />
+                  <img src={image[likes[index].id.ids]} alt="" />
                   <div>
                     <p>Сланцы RA-Sh</p>
                     <p>1200р</p>
