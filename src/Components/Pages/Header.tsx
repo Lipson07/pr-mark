@@ -47,6 +47,10 @@ const Header = ({ dv }: { dv: any }) => {
     if (count === 3) {
       ln!.style.transform = "translateX(637px)";
     }
+
+    if (count === 4) {
+      ln!.style.transform = "translateX(820px)";
+    }
   });
 
   function searchclick() {
@@ -72,7 +76,7 @@ const Header = ({ dv }: { dv: any }) => {
     backs!.style.top = "-35px";
     backs!.style.transform = "translateX(-700px)";
     search!.style.position = "absolute";
-    search!.style.width = "1000px";
+    search!.style.width = "1030px";
     search!.style.height = "110px";
     search!.style.transition = "0.3s";
     search!.style.top = "-35px";
@@ -179,7 +183,7 @@ const Header = ({ dv }: { dv: any }) => {
             </Link>
           ) : (
             <Link to="/profile">
-              <div className={head.contfour}>
+              <div className={head.contfour} onClick={() => handleClick(4)}>
                 <img src={reg} className={head.reg} alt="" />
               </div>
             </Link>

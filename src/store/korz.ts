@@ -42,6 +42,14 @@ const KorzSlice = createSlice({
     DeleteKorz(state, action: PayloadAction<any>) {
       state.korz.splice(action.payload.id, 1);
     },
+    DeleteAllKorz(state, action: PayloadAction<any>) {
+      const idsToDelete = action.payload;
+
+      idsToDelete.forEach((id: number) => {
+        state.korz = state.korz.filter((item) => item.id !== id);
+      });
+      console.log(idsToDelete);
+    },
     UpdateKol(state, action: PayloadAction<any>) {
       state.korz[action.payload.id].kol++;
       state.korz[action.payload.id].cost =
@@ -59,6 +67,7 @@ const KorzSlice = createSlice({
     },
   },
 });
-export const { SetKorz, DeleteKorz, UpdateKol, DeleteKol } = KorzSlice.actions;
+export const { SetKorz, DeleteKorz, UpdateKol, DeleteKol, DeleteAllKorz } =
+  KorzSlice.actions;
 export const selectKorz = (state: { korz: KorzState }) => state.korz.korz;
 export default KorzSlice.reducer;
