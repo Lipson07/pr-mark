@@ -18,6 +18,7 @@ const Regestr = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          name: "",
           phone_number: phone,
           password: password,
         }),

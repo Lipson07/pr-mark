@@ -1,16 +1,46 @@
-import React from "react";
+import React, { useRef } from "react";
 import { iconprofile, koshelek } from "../../../Assets/Profile";
 import prof from "../../../Styles/Profile.module.scss";
+import { selectUser, updateUser } from "../../../store/user";
 import Footer from "../Footer";
+import { useSelector, useDispatch } from "react-redux";
+
 const Profile = () => {
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+  const names = useRef<HTMLInputElement>(null);
+  console.log(user);
+  function handleClick() {
+    const name = names.current!.value;
+    console.log(name);
+    dispatch(updateUser({ name: name }));
+  }
   return (
     <>
+      <div
+        style={
+          user.user.name === "" ? { display: "flex" } : { display: "none" }
+        }
+        className={prof.container1}
+      >
+        <input type="text" ref={names} />
+        <button onClick={handleClick}>Сохранить</button>
+      </div>
+      <div
+        style={
+          user.user.name === "" ? { display: "flex" } : { display: "none" }
+        }
+        className={prof.container}
+      ></div>
+
       <div className={prof.profile}>
         <div className={prof.prof}>
           <div className={prof.icon}>
             <img src={iconprofile} />
             <div>
-              <h1>8 925 231 44 22</h1>
+              <h1>
+                {user.user.name == "" ? user.user.phone_number : user.user.name}
+              </h1>
               <p>Изменить профиль</p>
             </div>
           </div>

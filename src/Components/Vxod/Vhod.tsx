@@ -18,14 +18,17 @@ const Vhod = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        name: "",
         phone_number: phone,
         password: password,
       }),
     });
     const data = await res.json();
+    console.log(data);
     const payload = {
       user: {
         id: data.id,
+        name: "",
         phone_number: data.phone_number,
         password: data.password,
       },
