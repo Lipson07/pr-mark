@@ -34,7 +34,7 @@ import {
 import { Link } from "react-router-dom";
 const Glavstrmain = () => {
   let d = 0;
-  const im = [
+  const im: string[][] = [
     [tovar1, tovar1im, tovar1im1, tovar1im2],
     [tovar2, tovar2im, tovar2im1, tovar2im2],
     [tovar3, tovar3im, tovar3im1, tovar3im2],
@@ -47,9 +47,10 @@ const Glavstrmain = () => {
     [tovar4, tovar4im, tovar4im1, tovar4im2],
   ];
   const cost = [
-    1243, 715, 2413, 2413, 435, 930, 20146, 66690, 38000, 2364997, 2102, 52261,
-    1243, 715, 2413, 2413, 435, 930, 20146, 66690, 38000, 2364997, 2102, 52261,
-    1243, 715, 2413, 2413, 435, 930, 20146, 66690, 38000, 2364997, 2102, 52261,
+    1243, 715, 2413, 143532, 435, 930, 20146, 66690, 38000, 2364997, 2102,
+    52261, 1243, 715, 2413, 143532, 435, 930, 20146, 66690, 38000, 2364997,
+    2102, 52261, 1243, 715, 2413, 143532, 435, 930, 20146, 66690, 38000,
+    2364997, 2102, 52261,
   ];
   const name = [
     "Сланцы RA-Sh",
@@ -259,8 +260,8 @@ const Glavstrmain = () => {
           if (d < 12) d++;
           else d = 1;
           const current = tovarl
-            ? tovarl.find((item: any) => item.id.ids === index)?.id
-                .likecount || false
+            ? tovarl.find((item: any) => item.id.ids === index)?.id.likecount ||
+              false
             : false;
           return (
             <div

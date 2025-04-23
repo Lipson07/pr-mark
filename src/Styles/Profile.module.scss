@@ -96,8 +96,30 @@
   z-index: 11;
   width: 400px;
   height: 400px;
-  background-color: rgb(255, 0, 0);
+  background-color: rgb(255, 255, 255);
   top: 30%;
   left: 40%;
   opacity: 1;
+  gap: 30px;
+  h1 {
+    font-size: 30px;
+    font-weight: bolder;
+  }
+  input {
+    border: 1px black solid;
+    width: 300px;
+    border-radius: 20px;
+  }
+  button {
+    width: 200px;
+    height: 50px;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 195, 191, 1) 48%,
+      rgba(243, 227, 147, 1) 84%,
+      rgba(237, 206, 184, 1) 100%
+    );
+    color: white;
+    border-radius: 15px;
+  }
 }

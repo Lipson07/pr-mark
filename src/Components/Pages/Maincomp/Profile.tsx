@@ -23,6 +23,7 @@ const Profile = () => {
         }
         className={prof.container1}
       >
+        <h1>Как вас называть?</h1>
         <input type="text" ref={names} />
         <button onClick={handleClick}>Сохранить</button>
       </div>
