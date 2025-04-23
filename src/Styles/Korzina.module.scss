@@ -4,6 +4,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
+
   .content {
     display: flex;
     justify-content: center;
@@ -26,66 +28,116 @@
   .content1 {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    align-items: center;
 
-    top: 200px;
+    align-items: center;
+    position: relative;
+    top: 150px;
+    left: 150px;
     height: 100%;
     width: 100%;
     gap: 20px;
     .h1 {
       font-size: 30px;
       font-weight: bolder;
-      width: 40%;
+      width: 1500px;
       text-align: start;
     }
     .button {
       display: flex;
       flex-direction: row;
       gap: 20px;
+      width: 1500px;
+      text-align: start;
       div {
         display: flex;
         flex-direction: row;
       }
     }
-    .item {
+    .conteant {
       display: flex;
       flex-direction: row;
-      gap: 20px;
-      width: 800px;
-      height: 180px;
-      .info {
+      gap: 200px;
+      .conteant1 {
         display: flex;
-        flex-direction: row;
-        gap: 20px;
-        width: 400px;
-        p {
-          width: 80px;
-        }
-        .button1 {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 100px;
+        .item {
           display: flex;
-          flex-direction: column;
-          div {
+          flex-direction: row;
+          gap: 20px;
+          width: 800px;
+          height: 200px;
+
+          .info {
             display: flex;
             flex-direction: row;
-            width: 100px;
+            gap: 20px;
+            width: 400px;
             p {
-              text-align: center;
-              width: 20px;
+              width: 80px;
             }
-            button {
-              width: 30px;
-              height: 30px;
 
-              background-color: gray;
+            .button1 {
+              display: flex;
+              flex-direction: column;
+              gap: 20px;
+              width: 200px;
+              div {
+                display: flex;
+                flex-direction: row;
+                width: 100px;
+                p {
+                  text-align: center;
+                  width: 20px;
+                  background-color: #e3e3e3;
+                }
+                button {
+                  width: 30px;
+                  height: 30px;
+
+                  background-color: #e3e3e3;
+                }
+              }
             }
           }
+          align-items: center;
         }
-        align-items: center;
+      }
+      .conteant2 {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 400px;
+        button {
+          width: 400px;
+          height: 50px;
+          border-radius: 15px;
+          color: white;
+          background: linear-gradient(
+            90deg,
+            rgba(255, 195, 191, 1) 48%,
+            rgba(243, 227, 147, 1) 84%,
+            rgba(237, 206, 184, 1) 100%
+          );
+        }
+        div {
+          display: flex;
+          flex-direction: row;
+          width: 400px;
+          justify-content: space-between;
+        }
+        input {
+          width: 400px;
+          height: 50px;
+          background-color: #e3e3e3;
+          padding: 10px;
+        }
       }
       img {
         border-radius: 20px;
-        width: 150px;
+        width: 180px;
         height: auto;
       }
       div {

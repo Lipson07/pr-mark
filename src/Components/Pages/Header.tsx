@@ -176,7 +176,7 @@ const Header = ({ dv }: { dv: any }) => {
             </Link>
           </div>
           {user.user.id === 0 ? (
-            <Link to="/profile">
+            <Link to="/vhod">
               <div className={head.contfour}>
                 <img src={reg} className={head.reg} alt="" />
               </div>

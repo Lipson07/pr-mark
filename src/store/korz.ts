@@ -11,14 +11,21 @@ interface KorzState {
     kol: number;
     def: number;
   }[];
-
+  kols: number;
+  costs: number;
   kol: number;
+  skidka: number;
+
+  procent: number;
 }
 
 const initialState: KorzState = {
   korz: [],
-
+  kols: 0,
+  costs: 0,
   kol: 0,
+  skidka: 0,
+  procent: 0,
 };
 
 const KorzSlice = createSlice({
@@ -65,9 +72,52 @@ const KorzSlice = createSlice({
           state.korz[action.payload.id].def;
       }
     },
+    SetCosts(state) {
+      const sum = state.korz.reduce((acc, item) => acc + item.cost, 0);
+      state.costs = sum;
+    },
+    SetKols(state) {
+      const sum = state.korz.reduce((acc, item) => acc + item.kol, 0);
+      state.kols = sum;
+    },
+    SetPromo(state, action: PayloadAction<any>) {
+      const a = action.payload;
+      console.log(a);
+
+      switch (a) {
+        case "dogscasino":
+          state.procent = 50;
+          state.skidka =
+            state.costs -
+            Number((state.costs * (state.procent / 100)).toFixed());
+          break;
+        case "super":
+          state.procent = 30;
+          state.skidka =
+            state.costs -
+            Number((state.costs * (state.procent / 100)).toFixed());
+          break;
+        default:
+          state.procent = 0;
+          state.skidka = 0;
+      }
+    },
   },
 });
-export const { SetKorz, DeleteKorz, UpdateKol, DeleteKol, DeleteAllKorz } =
-  KorzSlice.actions;
+export const {
+  SetKorz,
+  DeleteKorz,
+  UpdateKol,
+  DeleteKol,
+  DeleteAllKorz,
+  SetCosts,
+  SetKols,
+  SetPromo,
+} = KorzSlice.actions;
 export const selectKorz = (state: { korz: KorzState }) => state.korz.korz;
+export const selectKols = (state: { korz: KorzState }) => state.korz.kols;
+export const selectCosts = (state: { korz: KorzState }) => state.korz.costs;
+
+export const selectSkidka = (state: { korz: KorzState }) => state.korz.skidka;
+export const selectProcent = (state: { korz: KorzState }) => state.korz.procent;
 export default KorzSlice.reducer;
