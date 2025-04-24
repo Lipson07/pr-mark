@@ -53,6 +53,11 @@
       align-items: start;
       gap: 10px;
       width: 70%;
+      svg {
+        position: relative;
+        left: 300px;
+        top: 30px;
+      }
       .item {
         width: 300px;
         border-radius: 20px;
@@ -63,6 +68,12 @@
         padding: 20px;
         flex-direction: column;
         height: fit-content;
+        div {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          width: 100%;
+        }
         img {
           margin-top: 20px;
         }

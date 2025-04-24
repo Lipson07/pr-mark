@@ -23,9 +23,12 @@ const Profile = () => {
         }
         className={prof.container1}
       >
-        <h1>Как вас называть?</h1>
-        <input type="text" ref={names} />
-        <button onClick={handleClick}>Сохранить</button>
+        <div className={prof.cons1}></div>
+        <div className={prof.cons}>
+          <h1>Как вас называть?</h1>
+          <input type="text" ref={names} />
+          <button onClick={handleClick}>Подвердить</button>
+        </div>
       </div>
       <div
         style={

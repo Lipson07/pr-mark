@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
   width: 100%;
   height: 100%;
   .prof {
@@ -82,9 +83,9 @@
   position: absolute;
   z-index: 10;
   width: 100%;
-  height: 190%;
+  height: 200%;
   background-color: black;
-  opacity: 0.2;
+  opacity: 0.6;
   top: 0px;
 }
 .container1 {
@@ -94,33 +95,57 @@
   align-items: center;
   position: fixed;
   z-index: 11;
-  width: 400px;
-  height: 400px;
-  background-color: rgb(255, 255, 255);
+  width: 370px;
+  height: 350px;
+
   top: 30%;
   left: 40%;
   opacity: 1;
   gap: 30px;
-  h1 {
-    font-size: 30px;
-    font-weight: bolder;
-  }
-  input {
-    border: 1px black solid;
-    width: 300px;
-    padding: 10px;
-    border-radius: 10px;
-  }
-  button {
-    width: 200px;
-    height: 50px;
+  .cons1 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.51);
     background: linear-gradient(
-      90deg,
-      rgba(255, 195, 191, 1) 48%,
-      rgba(243, 227, 147, 1) 84%,
-      rgba(237, 206, 184, 1) 100%
+      320deg,
+      rgba(255, 255, 255, 0.49) 0%,
+      rgba(255, 255, 255, 0.2) 100%
     );
+    border-radius: 15px;
+  }
+
+  .cons {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    border: 1px solid rgb(255, 255, 255);
+    backdrop-filter: blur(5px);
     color: white;
     border-radius: 15px;
+    h1 {
+      font-size: 30px;
+      font-weight: bolder;
+    }
+    input {
+      border: 1px rgb(255, 255, 255) solid;
+      width: 270px;
+      padding: 10px;
+      border-radius: 10px;
+      background: none;
+    }
+    button {
+      width: 270px;
+      height: 50px;
+      background: #333333cc;
+      color: white;
+      border-radius: 5px;
+    }
   }
 }

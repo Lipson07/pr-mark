@@ -2,7 +2,7 @@ import React from "react";
 import lk from "../../../Styles/Like.module.scss";
 import { lik } from "../../../Assets/Main/index";
 import { useDispatch, useSelector } from "react-redux";
-import { selectLike } from "../../../store/like";
+import { selectLike, SetLike, DeleteLike } from "../../../store/like";
 import {
   tovar1,
   tovar2,
@@ -37,8 +37,7 @@ import { Link } from "react-router-dom";
 const Likes = () => {
   const tv = useSelector(selectTovar);
   const dispatch = useDispatch();
-  const like = useSelector(selectLike);
-  console.log(like);
+
   function cardtovarload(
     id: number,
     name: string,
@@ -217,39 +216,82 @@ const Likes = () => {
     tovar11,
     tovar12,
   ];
+  const a = (
+    ids: number,
+    name: string,
+    cost: number,
+    img: string,
+    im: string[],
+    about: string[],
+    abouts: string[],
+    likecount: boolean
+  ) => {
+    if (likes.find((item: any) => item.id.ids === ids)?.id.likecount) {
+      dispatch(DeleteLike({ ids }));
+    }
+  };
   return (
     <div className={lk.like}>
       {likes.length !== 0 ? (
         <div className={lk.content1}>
           <h1>Избранное</h1>
           <div className={lk.items}>
-            {likes.map((item, index) => (
-              <Link to="/tovar">
-                {" "}
-                <div
-                  className={lk.item}
-                  key={index}
-                  onClick={() =>
-                    cardtovarload(
-                      like[index].id.ids,
-                      like[index].id.name,
-                      like[index].id.cost,
-                      like[index].id.img,
+            {likes.map((item, index) => {
+              return (
+                <>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    viewBox="0 0 24 24"
+                    fill={"red"}
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    onClick={() =>
+                      a(
+                        likes[index].id.ids,
+                        likes[index].id.name,
+                        likes[index].id.cost,
+                        likes[index].id.img,
+                        likes[index].id.im,
+                        likes[index].id.about,
+                        likes[index].id.abouts,
+                        likes[index].id.likecount
+                      )
+                    }
+                  >
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
+                  <Link to="/tovar">
+                    {" "}
+                    <div
+                      className={lk.item}
+                      key={index}
+                      onClick={() =>
+                        cardtovarload(
+                          likes[index].id.ids,
+                          likes[index].id.name,
+                          likes[index].id.cost,
+                          likes[index].id.img,
 
-                      like[index].id.im,
-                      like[index].id.about,
-                      like[index].id.abouts
-                    )
-                  }
-                >
-                  <img src={image[likes[index].id.ids]} alt="" />
-                  <div>
-                    <p>Сланцы RA-Sh</p>
-                    <p>1200р</p>
-                  </div>
-                </div>
-              </Link>
-            ))}
+                          likes[index].id.im,
+                          likes[index].id.about,
+                          likes[index].id.abouts
+                        )
+                      }
+                    >
+                      <img src={image[likes[index].id.ids]} alt="" />
+                      <div>
+                        <p>Сланцы RA-Sh</p>
+                        <p>1200р</p>
+                      </div>
+                    </div>
+                  </Link>
+                </>
+              );
+            })}
           </div>
         </div>
       ) : (

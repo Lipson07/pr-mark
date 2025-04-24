@@ -5,13 +5,46 @@ import { useDispatch } from "react-redux";
 import { tovar1im } from "../../../Assets/tovars";
 import tovars from "../../../Styles/Tovar.module.scss";
 import { SetKorz, selectKorz, DeleteKorz } from "../../../store/korz";
+import { selectLike, SetLike, DeleteLike, Setid } from "../../../store/like";
+import { current } from "@reduxjs/toolkit";
 
 const Tovars = () => {
   const dispatch = useDispatch();
   const tv = useSelector(selectTovar);
   const [imgosntovar, setImgosntovar] = useState(tv[0].im[0]);
   const korz = useSelector(selectKorz);
+  const tovarl = useSelector(selectLike);
   console.log(tv[0].about);
+  const likepush = async (
+    ids: any,
+    name: any,
+    cost: any,
+    img: any,
+    im: any,
+    about: any,
+    abouts: any,
+    likecount: any
+  ) => {
+    console.log(ids);
+    const id = {
+      ids: ids,
+      name: name,
+
+      cost: cost,
+      img: img,
+      im: im,
+      about: about,
+      abouts: abouts,
+      likecount: likecount,
+    };
+
+    dispatch(Setid(id));
+
+    dispatch(SetLike({ id }));
+    if (tovarl.find((item: any) => item.id.ids === ids)?.id.likecount) {
+      dispatch(DeleteLike({ ids }));
+    }
+  };
   function korztovarload() {
     const tovar = {
       id: tv[0].id,
@@ -33,10 +66,11 @@ const Tovars = () => {
   return (
     <div className={tovars.tovars}>
       {tv.map((item: any, index) => {
+        const currents = tovarl.find((item: any) => item.id.ids === tv[0].id);
         return (
           <div className={tovars.item}>
             <section>
-              {tv[0].im.map((imag: any) => {
+              {tv[0].im.map((imag: any, index) => {
                 return (
                   <img
                     src={imag}
@@ -72,17 +106,46 @@ const Tovars = () => {
                   Добавить в корзину
                 </button>
                 <div className={tovars.button2}>
-                  {" "}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="30"
                     height="30"
                     viewBox="0 0 24 24"
-                    fill={"#B3B3B3"}
+                    fill={currents ? "red" : "#B3B3B3"}
                     stroke="none"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
+                    onClick={() => {
+                      const s = tovarl.find(
+                        (item: any) => item.id.ids === tv[0].id
+                      );
+                      console.log(s);
+                      if (s) {
+                        likepush(
+                          s?.id.ids,
+                          s?.id.name,
+                          s?.id.cost,
+                          s?.id.img,
+                          s?.id.im,
+                          s?.id.about,
+                          s?.id.abouts,
+                          !currents
+                        );
+                        console.log("sss");
+                      } else {
+                        likepush(
+                          tv[0].id,
+                          tv[0].name,
+                          tv[0].cost,
+                          tv[0].img,
+                          tv[0].im,
+                          tv[0].about,
+                          tv[0].abouts,
+                          !currents
+                        );
+                      }
+                    }}
                   >
                     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                   </svg>
