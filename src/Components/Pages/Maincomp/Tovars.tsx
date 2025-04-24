@@ -78,8 +78,8 @@ const Tovars = () => {
                     width="30"
                     height="30"
                     viewBox="0 0 24 24"
-                    fill={"white"}
-                    stroke="currentColor"
+                    fill={"#B3B3B3"}
+                    stroke="none"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"

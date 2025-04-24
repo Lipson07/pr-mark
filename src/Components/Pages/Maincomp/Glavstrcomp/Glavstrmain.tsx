@@ -45,6 +45,10 @@ const Glavstrmain = () => {
     [tovar4, tovar4im, tovar4im1, tovar4im2],
     [tovar4, tovar4im, tovar4im1, tovar4im2],
     [tovar4, tovar4im, tovar4im1, tovar4im2],
+    [tovar4, tovar4im, tovar4im1, tovar4im2],
+    [tovar4, tovar4im, tovar4im1, tovar4im2],
+    [tovar4, tovar4im, tovar4im1, tovar4im2],
+    [tovar4, tovar4im, tovar4im1, tovar4im2],
   ];
   const cost = [
     1243, 715, 2413, 143532, 435, 930, 20146, 66690, 38000, 2364997, 2102,
@@ -147,8 +151,23 @@ const Glavstrmain = () => {
       "Цвет	",
       "Российский размер	",
     ],
+    [
+      "Материал",
+      "Материал подошвы обуви",
+      "Сезон",
+      "Цвет	",
+      "Российский размер	",
+    ],
+    [
+      "Материал",
+      "Материал подошвы обуви",
+      "Сезон",
+      "Цвет	",
+      "Российский размер	",
+    ],
   ];
   const abouts = [
+    ["EVA", "EVA", "Лето", "Черный", "44.45"],
     ["EVA", "EVA", "Лето", "Черный", "44.45"],
     ["EVA", "EVA", "Лето", "Черный", "44.45"],
     ["EVA", "EVA", "Лето", "Черный", "44.45"],

@@ -12,7 +12,7 @@ import skidki1 from "./skidiki1.png";
 import arrback from "./arrback.svg";
 import arrgo from "./arrgo.svg";
 import tovar1 from "./tovar1.png";
-import qr from "./qr.svg";
+import qr from "./qr.png";
 import apple from "./apple.svg";
 import playmarket from "./playmarket.svg";
 import huawei from "./huawei.svg";
