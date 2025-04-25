@@ -305,7 +305,7 @@ const Glavstrmain = () => {
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
-                fill={current ? "red" : "white"}
+                fill={current ? "#FF8B83" : "white"}
                 stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"

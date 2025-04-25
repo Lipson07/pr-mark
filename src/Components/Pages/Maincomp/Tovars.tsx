@@ -111,7 +111,7 @@ const Tovars = () => {
                     width="30"
                     height="30"
                     viewBox="0 0 24 24"
-                    fill={currents ? "red" : "#B3B3B3"}
+                    fill={currents ? "#FF8B83" : "#B3B3B3"}
                     stroke="none"
                     strokeWidth="2"
                     strokeLinecap="round"

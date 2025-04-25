@@ -16,10 +16,182 @@ import {
   selectSkidka,
   selectProcent,
 } from "../../../store/korz";
+import {
+  tovar1im,
+  tovar1im1,
+  tovar1im2,
+  tovar2im,
+  tovar2im1,
+  tovar2im2,
+  tovar3im,
+  tovar3im1,
+  tovar3im2,
+  tovar4im,
+  tovar4im1,
+  tovar4im2,
+} from "../../../Assets/tovars";
+import {
+  tovar1,
+  tovar2,
+  tovar3,
+  tovar4,
+  tovar5,
+  tovar6,
+  tovar7,
+  tovar8,
+  tovar9,
+  tovar10,
+  tovar11,
+  tovar12,
+} from "../../../Assets/Main";
 import { useSelector, useDispatch } from "react-redux";
 import { al } from "react-router/dist/development/route-data-BL8ToWby";
-
+import { selectLike, SetLike, Setid, DeleteLike } from "../../../store/like";
 const Korzina = () => {
+  const im: string[][] = [
+    [tovar1, tovar1im, tovar1im1, tovar1im2],
+    [tovar2, tovar2im, tovar2im1, tovar2im2],
+    [tovar3, tovar3im, tovar3im1, tovar3im2],
+    [tovar4, tovar4im, tovar4im1, tovar4im2],
+    [tovar4, tovar4im, tovar4im1, tovar4im2],
+    [tovar4, tovar4im, tovar4im1, tovar4im2],
+    [tovar4, tovar4im, tovar4im1, tovar4im2],
+    [tovar4, tovar4im, tovar4im1, tovar4im2],
+    [tovar4, tovar4im, tovar4im1, tovar4im2],
+    [tovar4, tovar4im, tovar4im1, tovar4im2],
+    [tovar4, tovar4im, tovar4im1, tovar4im2],
+    [tovar4, tovar4im, tovar4im1, tovar4im2],
+    [tovar4, tovar4im, tovar4im1, tovar4im2],
+    [tovar4, tovar4im, tovar4im1, tovar4im2],
+  ];
+  const cost = [
+    1243, 715, 2413, 143532, 435, 930, 20146, 66690, 38000, 2364997, 2102,
+    52261, 1243, 715, 2413, 143532, 435, 930, 20146, 66690, 38000, 2364997,
+    2102, 52261, 1243, 715, 2413, 143532, 435, 930, 20146, 66690, 38000,
+    2364997, 2102, 52261,
+  ];
+  const name = [
+    "Сланцы RA-Sh",
+    "Журнал ЧТИВО №3... ",
+    "Кроссовки lexsan",
+    "Смартфон Apple iP...",
+    "Чехол Genshin Impa...",
+    "Комплект трусов б... ",
+    "Процессор Intel CO...",
+    "Игровая приставка...",
+    "Умная колонка “Ал...",
+    "Автомобиль CHERY...",
+    "Туалетная вода Dol...",
+    "Подвесной унитаз...",
+    "Сланцы RA-Sh",
+    "Журнал ЧТИВО №3... ",
+    "Кроссовки lexsan",
+    "Смартфон Apple iP...",
+    "Чехол Genshin Impa...",
+    "Комплект трусов б... ",
+    "Процессор Intel CO...",
+    "Игровая приставка...",
+    "Умная колонка “Ал...",
+    "Автомобиль CHERY...",
+    "Туалетная вода Dol...",
+    "Подвесной унитаз...",
+    "Сланцы RA-Sh",
+    "Журнал ЧТИВО №3... ",
+    "Кроссовки lexsan",
+    "Смартфон Apple iP...",
+    "Чехол Genshin Impa...",
+    "Комплект трусов б... ",
+    "Процессор Intel CO...",
+    "Игровая приставка...",
+    "Умная колонка “Ал...",
+    "Автомобиль CHERY...",
+    "Туалетная вода Dol...",
+    "Подвесной унитаз...",
+  ];
+  const about = [
+    [
+      "Материал",
+      "Материал подошвы обуви",
+      "Сезон",
+      "Цвет	",
+      "Российский размер	",
+    ],
+    [
+      "Материал",
+      "Материал подошвы обуви",
+      "Сезон",
+      "Цвет	",
+      "Российский размер	",
+    ],
+    [
+      "Материал",
+      "Материал подошвы обуви",
+      "Сезон",
+      "Цвет	",
+      "Российский размер	",
+    ],
+    [
+      "Материал",
+      "Материал подошвы обуви",
+      "Сезон",
+      "Цвет	",
+      "Российский размер	",
+    ],
+    [
+      "Материал",
+      "Материал подошвы обуви",
+      "Сезон",
+      "Цвет	",
+      "Российский размер	",
+    ],
+    [
+      "Материал",
+      "Материал подошвы обуви",
+      "Сезон",
+      "Цвет	",
+      "Российский размер	",
+    ],
+    [
+      "Материал",
+      "Материал подошвы обуви",
+      "Сезон",
+      "Цвет	",
+      "Российский размер	",
+    ],
+    [
+      "Материал",
+      "Материал подошвы обуви",
+      "Сезон",
+      "Цвет	",
+      "Российский размер	",
+    ],
+    [
+      "Материал",
+      "Материал подошвы обуви",
+      "Сезон",
+      "Цвет	",
+      "Российский размер	",
+    ],
+    [
+      "Материал",
+      "Материал подошвы обуви",
+      "Сезон",
+      "Цвет	",
+      "Российский размер	",
+    ],
+  ];
+  const abouts = [
+    ["EVA", "EVA", "Лето", "Черный", "44.45"],
+    ["EVA", "EVA", "Лето", "Черный", "44.45"],
+    ["EVA", "EVA", "Лето", "Черный", "44.45"],
+    ["EVA", "EVA", "Лето", "Черный", "44.45"],
+    ["EVA", "EVA", "Лето", "Черный", "44.45"],
+    ["EVA", "EVA", "Лето", "Черный", "44.45"],
+    ["EVA", "EVA", "Лето", "Черный", "44.45"],
+    ["EVA", "EVA", "Лето", "Черный", "44.45"],
+    ["EVA", "EVA", "Лето", "Черный", "44.45"],
+    ["EVA", "EVA", "Лето", "Черный", "44.45"],
+  ];
   const korzes = useSelector(selectKorz);
   const dispatch = useDispatch();
   dispatch(SetKols());
@@ -27,7 +199,7 @@ const Korzina = () => {
   dispatch(SetCosts());
   const costs = useSelector(selectCosts);
   const prom = useRef<HTMLInputElement>(null);
-
+  const tovarl = useSelector(selectLike);
   const skidka = useSelector(selectSkidka);
   const procent = useSelector(selectProcent);
 
@@ -41,6 +213,34 @@ const Korzina = () => {
     dispatch(DeleteKorz({ id: index }));
     console.log(korzes);
   }
+  const likepush = async (
+    ids: any,
+    name: any,
+    cost: any,
+    img: any,
+    im: any,
+    about: any,
+    abouts: any,
+    likecount: any
+  ) => {
+    const id = {
+      ids: ids,
+      name: name,
+
+      cost: cost,
+      img: img,
+      im: im,
+      about: about,
+      abouts: abouts,
+      likecount: likecount,
+    };
+    dispatch(Setid(id));
+
+    dispatch(SetLike({ id }));
+    if (tovarl.find((item: any) => item.id.ids === ids)?.id.likecount) {
+      dispatch(DeleteLike({ ids }));
+    }
+  };
   const [checkedItems, setCheckedItems] = React.useState<any>({});
   const checkboxes = useRef<HTMLInputElement>(null);
   React.useEffect(() => {
@@ -100,7 +300,11 @@ const Korzina = () => {
           <div className={korz.conteant}>
             <div className={korz.conteant1}>
               {korzes.map((item: any, index) => {
+                const current = tovarl.find(
+                  (items: any) => items.id.ids === item.id
+                );
                 console.log(item.tovar);
+
                 return (
                   <div className={korz.item}>
                     <input
@@ -140,11 +344,23 @@ const Korzina = () => {
                         width="24"
                         height="24"
                         viewBox="0 0 24 24"
-                        fill={"none"}
+                        fill={current ? "#FF8B83" : "none"}
                         stroke="gray"
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
+                        onClick={() => {
+                          likepush(
+                            item.id,
+                            name[item.id],
+                            cost[item.id],
+                            item[item.id],
+                            im[item.id],
+                            about[item.id],
+                            abouts[item.id],
+                            true
+                          );
+                        }}
                       >
                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                       </svg>
