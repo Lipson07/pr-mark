@@ -57,7 +57,7 @@
         position: relative;
 
         left: 120px;
-        top: 40px;
+        top: 20px;
         cursor: pointer;
       }
       .item {
@@ -75,9 +75,6 @@
           flex-direction: column;
           gap: 5px;
           width: 100%;
-        }
-        img {
-          margin-top: 20px;
         }
       }
     }

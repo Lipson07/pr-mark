@@ -9,7 +9,7 @@ const Vhod = () => {
   const [password, setPassword] = React.useState<string>("");
   const [phone, setPhone] = React.useState<string>("");
   const dispatch = useDispatch();
-
+  const [show, setShow] = React.useState<boolean>(false);
   const a = async () => {
     const res = await fetch("http://localhost:8080/login", {
       method: "POST",
@@ -33,9 +33,9 @@ const Vhod = () => {
         password: data.password,
       },
     };
-    if (data) {
-      const a = dispatch(setUser(payload));
-      console.log(a);
+    if (data.id) {
+      dispatch(setUser(payload));
+      window.location.href = "/main";
     }
   };
   document.getElementsByTagName("html")[0].style.overflow = "hidden";
@@ -67,6 +67,7 @@ const Vhod = () => {
           <Link to="/smena">
             <p className={Vxod.p1}>Забыли пароль?</p>
           </Link>
+
           <button onClick={a}>Войти</button>
           <p>Нет аккаунта?</p>
           <Link to="/regestr">

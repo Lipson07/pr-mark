@@ -15,22 +15,47 @@ import {
   linehead,
   arrowhead,
 } from "../../Assets/Main/index";
+import { SetTovar, selectTovar } from "../../store/tovars";
 import head from "../../Styles/Header.module.scss";
 import { Link } from "react-router-dom";
-
+import {
+  images,
+  im,
+  name,
+  cost,
+  about,
+  abouts,
+  nna,
+} from "../../Assets/Tovar/index";
 const Header = ({ dv }: { dv: any }) => {
   const user = useSelector(selectUser);
   console.log(user);
+  const t = useSelector(selectTovar);
+  const [vod, Setvod] = useState("");
   const sr = useRef<HTMLInputElement>(null);
   const line = useRef<HTMLImageElement>(null);
   const back = useRef<HTMLDivElement>(null);
   const count = useSelector(selectCount);
   const image = useRef<HTMLImageElement>(null);
   const arr = useRef<HTMLImageElement>(null);
+  const sea = useRef<HTMLDivElement>(null);
   console.log(count);
   const dispatch = useDispatch();
   function handleClick(count: number) {
     dispatch(Setcount(count));
+  }
+  const tovars: any[] = [];
+  for (let i = 0; nna.length > i; i++) {
+    const tovar = {
+      id: i,
+      name: nna[i],
+      cost: cost[i],
+      img: images[i],
+      im: im[i],
+      about: about[i],
+      abouts: abouts[i],
+    };
+    tovars.push(tovar);
   }
 
   useEffect(() => {
@@ -52,19 +77,48 @@ const Header = ({ dv }: { dv: any }) => {
       ln!.style.transform = "translateX(820px)";
     }
   });
+  const filteredNames = nna.filter(
+    (names) => vod && names.toLowerCase().includes(vod.toLowerCase())
+  );
 
+  function cardtovarload(
+    id: number,
+    name: string,
+    cost: number,
+    img: string,
+    im: string[],
+    about: string[],
+    abouts: string[]
+  ) {
+    const tovar = {
+      id: id,
+      name: name,
+      cost: cost,
+      img: img,
+      im: im,
+      about: about,
+      abouts: abouts,
+    };
+    dispatch(SetTovar(tovar));
+    backclick();
+  }
   function searchclick() {
+    const searchdiv = sea.current;
     const search = sr.current;
     const backs = back.current;
     const img = image.current;
     const d1 = dv.current;
     const arrs = arr.current;
+
+    searchdiv!.style.transition = "0.3s";
+    searchdiv!.style.display = "flex";
     arrs!.style.display = "block";
     d1!.style.display = "block";
     img!.style.transition = "0.3s";
     img!.style.transform = "translateX(-400px)";
     img!.style.position = "relative";
     img!.style.top = "0px";
+    search!.style.borderRadius = "20px 20px 0px 0px";
     search!.style.paddingLeft = "80px";
     search!.style.fontSize = "40px";
     backs!.style.display = "block";
@@ -93,6 +147,9 @@ const Header = ({ dv }: { dv: any }) => {
     const img = image.current;
     const d1 = dv.current;
     const arrs = arr.current;
+    const searchdiv = sea.current;
+    search!.style.borderRadius = "20px 20px 20px 20px";
+    searchdiv!.style.display = "none";
     img!.style.top = "15px";
     arrs!.style.display = "none";
     d1!.style.display = "none";
@@ -114,7 +171,7 @@ const Header = ({ dv }: { dv: any }) => {
     search!.style.top = "";
     search!.style.transform = "translateX(0px)";
     search!.style.opacity = "";
-
+    Setvod("");
     line!.current!.style.display = "";
   }
   return (
@@ -162,9 +219,44 @@ const Header = ({ dv }: { dv: any }) => {
                 alt=""
               />
             </div>
-            <input className={head.input} ref={sr} onClick={searchclick} />
+            <input
+              className={head.input}
+              ref={sr}
+              onClick={searchclick}
+              type="text"
+              value={vod}
+              onChange={(e) => Setvod(e.target.value)}
+            />
             <img ref={image} src={search} className={head.search} />
+            <div className={head.serchdiv} ref={sea}>
+              {filteredNames.map((name, index) => {
+                const current = tovars.find((tovar) => tovar.name === name);
+                console.log(tovars);
+                return (
+                  <Link to="/tovar">
+                    {" "}
+                    <h1
+                      onClick={() =>
+                        cardtovarload(
+                          current!.id,
+                          name,
+                          current!.cost,
+                          current!.img,
+                          current!.im,
+                          current!.about,
+                          current!.abouts
+                        )
+                      }
+                      key={index}
+                    >
+                      {name}
+                    </h1>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
+
           <div className={head.contthree}>
             <Link to="/shop">
               <img
@@ -176,7 +268,7 @@ const Header = ({ dv }: { dv: any }) => {
             </Link>
           </div>
           {user.user.id === 0 ? (
-            <Link to="/profile">
+            <Link to="/vhod">
               <div className={head.contfour}>
                 <img src={reg} className={head.reg} alt="" />
               </div>

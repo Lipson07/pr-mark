@@ -24,8 +24,6 @@ const Regestr = () => {
         }),
       });
       const data = await res.json();
-      console.log(data);
-      console.log(phone);
     }
   };
   document.getElementsByTagName("html")[0].style.overflow = "hidden";
@@ -63,6 +61,7 @@ const Regestr = () => {
             />
             <label className={Vxod.label1}>Подтвердите пароль</label>
           </div>
+
           <button onClick={a}>Зарегистрироваться</button>
           <p>Уже есть аккаунт?</p>
           <Link to="/vhod">

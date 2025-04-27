@@ -71,6 +71,30 @@
           height: 40px;
           z-index: 11;
           outline: none;
+          border-radius: 20px;
+        }
+        .serchdiv {
+          display: none;
+          width: 1030px;
+          height: fit-content;
+          max-height: 400px;
+          background-color: rgb(228, 228, 228);
+          position: absolute;
+          left: -400px;
+          top: 70px;
+
+          padding: 10px;
+          flex-direction: column;
+          min-height: 0px;
+          overflow-y: scroll;
+          z-index: 10;
+          h1 {
+            cursor: pointer;
+            width: 100%;
+          }
+          h1:hover {
+            background-color: rgb(212, 212, 212);
+          }
         }
       }
       .contthree {

@@ -57,6 +57,10 @@
           width: 100%;
           justify-content: end;
           align-items: center;
+          p {
+            text-align: end;
+            width: 200px;
+          }
         }
       }
     }

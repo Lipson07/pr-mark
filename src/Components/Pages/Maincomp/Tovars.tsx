@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { selectTovar } from "../../../store/tovars";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -14,6 +14,9 @@ const Tovars = () => {
   const [imgosntovar, setImgosntovar] = useState(tv[0].im[0]);
   const korz = useSelector(selectKorz);
   const tovarl = useSelector(selectLike);
+  useEffect(() => {
+    setImgosntovar(tv[0].im[0]);
+  }, [tv]);
   console.log(tv[0].about);
   const likepush = async (
     ids: any,
@@ -93,7 +96,9 @@ const Tovars = () => {
                   return (
                     <div className={tovars.about1}>
                       <p>{item}</p>
-                      <p className={tovars.about2}>{tv[0].abouts[index]}</p>
+                      <div className={tovars.about2}>
+                        <p>{tv[0].abouts[index]}</p>
+                      </div>
                     </div>
                   );
                 })}

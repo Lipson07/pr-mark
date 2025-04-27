@@ -84,7 +84,7 @@ const KorzSlice = createSlice({
       const a = action.payload;
       console.log(a);
 
-      switch (a) {
+      switch (a.toLowerCase()) {
         case "dogscasino":
           state.procent = 50;
           state.skidka =

@@ -16,7 +16,7 @@ interface TovarState {
   img: string;
   im: string[];
   about: string[];
-  abouts: string[];
+  abouts: string[][];
 }
 
 const initialState: TovarState = {
