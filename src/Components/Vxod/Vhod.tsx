@@ -35,7 +35,7 @@ const Vhod = () => {
     };
     if (data.id) {
       dispatch(setUser(payload));
-      window.location.href = "/main";
+      window.location.href = "/";
     }
   };
   document.getElementsByTagName("html")[0].style.overflow = "hidden";

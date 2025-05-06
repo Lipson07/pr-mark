@@ -14,7 +14,7 @@ const Glavstr = () => {
   const arrgos = useRef<HTMLDivElement>(null);
   const [slide, setSlide] = React.useState(0);
   document.getElementsByTagName("html")[0].style.overflowY = "scroll";
-  
+
   useEffect(() => {
     if (slide === 0) {
       imgs1.current!.style.opacity = "1";
@@ -52,9 +52,11 @@ const Glavstr = () => {
               <img src={arrgo} />
             </div>
           </div>
-          <div className={glstr.dots}>
-            <div className={glstr.dot} ref={dot}></div>
-            <div className={glstr.dot1} ref={dot1}></div>
+          <div className={glstr.dots1}>
+            <div className={glstr.dots}>
+              <div className={glstr.dot} ref={dot}></div>
+              <div className={glstr.dot1} ref={dot1}></div>
+            </div>
           </div>
         </section>
         <Glavstrmain />

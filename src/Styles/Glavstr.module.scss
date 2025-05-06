@@ -93,33 +93,38 @@ html {
         cursor: pointer;
       }
     }
-    .dots {
-      position: absolute;
-      top: 740px;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 110px;
-      height: 15px;
-
+    .dots1 {
+      width: 100%;
+      height: 100%;
       display: flex;
-      flex-direction: row;
-      .dot {
-        width: 70px;
-        height: 100%;
-        background-color: white;
-        border-radius: 25px;
-        transition: 0.3s;
-      }
-      .dot1 {
-        width: 30px;
-        height: 100%;
-        margin-left: 10px;
-        background-color: rgb(255, 255, 255);
-        border-radius: 25px;
-        transition: 0.3s;
+      justify-content: center;
+      align-items: end;
+
+      .dots {
+        position: relative;
+        margin-bottom: 30px;
+        width: 110px;
+        height: 15px;
+
+        display: flex;
+        flex-direction: row;
+        .dot {
+          width: 70px;
+          height: 100%;
+          background-color: white;
+          border-radius: 25px;
+          transition: 0.3s;
+        }
+        .dot1 {
+          width: 30px;
+          height: 100%;
+          margin-left: 10px;
+          background-color: rgb(255, 255, 255);
+          border-radius: 25px;
+          transition: 0.3s;
+        }
       }
     }
-
     .arr:hover {
       .leftarrow {
         opacity: 0.2;
