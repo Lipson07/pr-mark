@@ -322,7 +322,7 @@ const Korzina = () => {
                       <p>{item.name}</p>
 
                       <div className={korz.button1}>
-                        <p>{item.cost + "Р"}</p>
+                        <p>{item.cost + "₽"}</p>
                         <div>
                           <button
                             onClick={() => dispatch(DeleteKol({ id: index }))}
@@ -379,7 +379,7 @@ const Korzina = () => {
               <button className={korz.buttons}>Оформить заказ</button>
               <div>
                 <h1>{kols + " товаров"}</h1>
-                <h1>{costs}</h1>
+                <h1>{costs + "₽"}</h1>
               </div>
               <div>
                 <h1>Скидка</h1>
@@ -387,7 +387,7 @@ const Korzina = () => {
               </div>
               <div>
                 <h1>Итого</h1>
-                <h1>{skidka == 0 ? costs : skidka}</h1>
+                <h1>{skidka == 0 ? costs + "₽" : skidka + "₽"}</h1>
               </div>
               <input
                 type="text"
